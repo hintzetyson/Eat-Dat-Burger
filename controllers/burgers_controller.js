@@ -3,6 +3,7 @@ const burger = require('../models/burger');
 
 const router = express.Router();
 
+//Route to get a burger
 router.get('/', function(req, res) {
     burger.selectAll(function(data) {
         let object = {
@@ -13,6 +14,7 @@ router.get('/', function(req, res) {
     });
 });
 
+//Route to post a new burger to burger_name
 router.post('/burger', function(req,res) {
     burger.insertOne(
         [
@@ -34,7 +36,19 @@ router.put('/burgers/:id', function(req, res) {
 
     burger.updateOne(
         {
-            devoured: true
+            eaten: true
+        },
+        condition, function(data) {
+            res.sendStatus(200).end();
         }
-    )
-})
+    );
+});
+
+router.delete('burger/:id'm function(req, res) {
+    let id = req.params.id;
+    burger.deleteOne(id, function(data) {
+        res.sendStatus(200).end();
+    });
+});
+
+module.exports = router;
