@@ -14,6 +14,7 @@ app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 
 app.engine('handlebars', expressHandle({ defaultLayout: 'main'}));
+app.set("view engine", "handlebars");
 
 //Grab the routes from the controller
 const routes = require('./controllers/burgers_controller');

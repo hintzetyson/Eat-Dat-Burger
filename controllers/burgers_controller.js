@@ -44,7 +44,7 @@ router.put('/burgers/:id', function(req, res) {
     );
 });
 
-router.delete('burger/:id'm function(req, res) {
+router.delete('burgers/:id', function(req, res) {
     let id = req.params.id;
     burger.deleteOne(id, function(data) {
         res.sendStatus(200).end();

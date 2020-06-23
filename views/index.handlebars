@@ -1,13 +1,14 @@
 <h1>Eat the Burger</h1>
 
 <div class="container">
+    {{!-- Add a burger --}}
     <div class="row">
         <div class="col-lg-12">
             <div>
                 <h1>Add a new burger!</h1>
                 <form>
                     <div>
-                        <input type="text" name="burgername" placeholder="Type the name of a burger here">
+                        <input type="text" name="burger_name" placeholder="Type the name of a burger here">
                         <div>
                             <button type="submit">Add your burger!</button>
                         </div>
@@ -16,13 +17,39 @@
             </div>
         </div>
     </div>
+    {{!-- List of burgers to eat --}}
     <div class="row">
         <div class="col-lg-6">
             <h2>Burger to eat!</h2>
 
             <ul>
                 {{#each burgers}}
-                    
+                    {{#unless eaten}}
+                        <li>
+                            <button class="btn btn-dark" data-id="{{id}}" type="button">
+                                {{ burger_name }}
+                            </button>
+                        </li>
+                    {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+
+        {{!-- Eaten burgers --}}
+        <div class="col-lg-6">
+            <h2>Burgers you have eaten</h2>
+
+            <ul>
+                {{#each burgers}}
+                    {{#if eaten}}
+                        <li>
+                            {{burger_name}}
+                            <button data-id="{{id}}">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </li>
+                    {{/if}}
+                {{/each}}
             </ul>
         </div>
     </div>
