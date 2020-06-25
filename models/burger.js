@@ -1,30 +1,17 @@
-const orm = require ("../config/orm");
+const orm = require('../config/orm');
 
-const burger = {
-    selectAll: function(cb) {
-        orm.selectAll(function(data) {
-            cb(data)
-        });
+var burger = {
+    all: cb => {
+        orm.selectAll(res => cb(res));
     },
-
-    insertOne: function(burgers, nameVal, cb) {
-        orm.insertOne(burgers, nameVal, function(results) {
-            cb(results)
-        })
+    add: (name, cb) => {
+        orm.insertOne([name], res => cb(res));
     },
-
-    updateOne: function(val, id, cb) {
-        let devoured = val.devoured;
-
-        orm.updateOne(devoured, id, function(res) {
-            cb(res)
-        });
+    update: (id, cb) => {
+        orm.updateOne([id], res => cb(res));    
     },
-
-    deleteOne: function(id, cb) {
-        orm.deleteOne(id, (confirm) => {
-            cb(confirm)
-        });
+    delete: (id, cb) => {
+        orm.deleteOne([id], res => cb(res));
     }
 };
 
