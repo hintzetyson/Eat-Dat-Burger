@@ -24,30 +24,21 @@
 
             <ul>
                 {{#each burgers}}
-                    {{#unless eaten}}
-                        <li>
-                            <button class="btn btn-dark" data-id="{{id}}" type="button">
-                                {{ burger_name }}
-                            </button>
-                        </li>
+                    {{#unless devoured}}
+                        {{> burger-list devoured=false}}
                     {{/unless}}
                 {{/each}}
             </ul>
         </div>
 
-        {{!-- Eaten burgers --}}
+        {{!-- Devoured burgers --}}
         <div class="col-lg-6">
-            <h2>Burgers you have eaten</h2>
+            <h2>Burgers you have devoured</h2>
 
             <ul>
                 {{#each burgers}}
-                    {{#if eaten}}
-                        <li>
-                            {{burger_name}}
-                            <button data-id="{{id}}">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </li>
+                    {{#if devoured}}
+                        {{> burger-list devoured=true}}
                     {{/if}}
                 {{/each}}
             </ul>
