@@ -1,5 +1,7 @@
 /* eslint-disable linebreak-style */
-var connection = require('./connection');
+const connection = require('./connection');
+
+var connection = require("../config/connection.js");
 
 var orm = {
     selectAll: (cb) => {
