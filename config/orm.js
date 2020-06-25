@@ -1,8 +1,6 @@
 /* eslint-disable linebreak-style */
 const connection = require('./connection');
 
-var connection = require("../config/connection.js");
-
 var orm = {
     selectAll: (cb) => {
         var queryString = "SELECT * FROM burgers;";
