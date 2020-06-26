@@ -4,7 +4,7 @@
 
 ## Description
 
-This is a simple website that demonstrates using a SQL Database and updating info live to the user using express and handlebars. [You can access the website here.]()
+This is a simple website that demonstrates using a SQL Database and updating info live to the user using express and handlebars. [You can access the website here.](https://salty-falls-49444.herokuapp.com/)
 
 ## Installation
 
@@ -16,4 +16,4 @@ npm i
 
 ## Questions
 
-If you have any questions, please open an issue or contact [hintzetyson](https://github.com/hintzetyson).
+If you have any questions, please open an issue or contact [Tyson Hintze](https://github.com/hintzetyson).
